@@ -3568,3 +3568,12 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child { gap: .5rem; }
       height: 36px !important;
   }
 }
+
+@font-face {
+    font-family: "TestNetflix";
+    src: url("https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff2") format("woff2");
+}
+
+body {
+    font-family: "TestNetflix", sans-serif !important;
+}
