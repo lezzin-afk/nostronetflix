@@ -3836,3 +3836,244 @@ h6 {
 .netflix-black {
     font-weight: 900 !important;
 }
+
+/* ============================================================
+   NETFLIX AUTHENTIC MODE — appended corrections
+   Everything below is deliberately placed at the very end of
+   the file so it wins the cascade over the NETFIN rules above,
+   the same technique the original "FIXES" block already used.
+   Goal: match real Netflix conventions instead of the original
+   red/black fan-theme flourishes (glow, uppercase, colour wave).
+   ============================================================ */
+
+/* ── 1. Netflix-accurate colour tokens ──
+   These are CSS custom properties, so redeclaring them here
+   updates every var(--...) used earlier in the file too —
+   backgrounds, borders, progress bar, checkboxes, tables, etc. */
+:root {
+  --darkerGradientPoint:       #0a0a0a;
+  --darkerGradientPointAlpha:  rgba(10,10,10,.92);
+  --lighterGradientPoint:      #181818;
+  --lighterGradientPointAlpha: rgba(24,24,24,.92);
+  --gradientPointAlpha:        rgba(20,20,20,.35);
+
+  --headerColor: rgba(20,20,20,.95);
+  --drawerColor: rgba(20,20,20,.97);
+
+  /* Netflix has no colour-tinted borders — subtle white instead */
+  --borderColor:        rgba(255,255,255,.08);
+  --darkerBorderColor:  rgba(255,255,255,.05);
+  --lighterBorderColor: rgba(255,255,255,.12);
+
+  --selectorBackgroundColor:      #2a2a2a;
+  --selectorBackgroundColorAlpha: rgba(42,42,42,.7);
+
+  /* The real Netflix red */
+  --activeColor:      #e50914;
+  --activeColorAlpha: rgba(229,9,20,.9);
+  --uiAccentColor:    #e50914;
+
+  --osdSeekBarBufferedColorAlpha: rgba(255,255,255,.25);
+  --osdSeekBarThumbColor: #e50914;
+
+  --tableBodyColor: #141414;
+
+  /* Netflix's primary CTA (Play) is white/black — red is
+     reserved for Sign In and destructive actions */
+  --btnMiniPlayColor:       #ffffff;
+  --btnMiniPlayBorderColor: rgba(255,255,255,.4);
+  --btnDeleteColor:         #8b0000;
+  --btnDeleteBorderColor:   rgba(255,255,255,.15);
+  --btnSubmitColor:         #e50914;
+  --btnSubmitBorderColor:   #e50914;
+
+  --checkboxCheckedBgColor: #e50914;
+  --highlightOutlineColor:  #ffffff;
+
+  --elegantFinFooterText: "Netflix Mode";
+  --loginPageText: "Sign In";
+}
+
+/* ── 2. Play button = white/black, real Netflix convention ── */
+.btnPlay.detailButton {
+  background-color: #fff !important;
+  color: #000 !important;
+  border-color: transparent !important;
+}
+@media (hover: hover) and (pointer: fine) {
+  .btnPlay.detailButton:hover {
+    background-color: rgba(255,255,255,.75) !important;
+    color: #000 !important;
+  }
+}
+
+.cardOverlayContainer > .cardOverlayFab-primary,
+.listItemImageButton,
+.layout-mobile .cardOverlayButton-br:not([data-action="menu"]) > .cardOverlayButtonIcon {
+  background-color: #fff !important;
+  color: #000 !important;
+  border: none !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,.5) !important;
+}
+.cardOverlayContainer > .cardOverlayFab-primary:hover,
+.listItemImageButton:hover {
+  background-color: rgba(255,255,255,.85) !important;
+}
+
+.layout-desktop .detailButton:not(.btnPlay):hover {
+  color: #fff;
+  background: rgba(255,255,255,.15);
+}
+.detailButton:active {
+  color: #fff;
+  background: rgba(255,255,255,.2);
+}
+
+.navMenuOption-selected { background-color: var(--activeColor) !important; }
+
+/* ── 3. Row titles: clean Netflix look — no glow, no underline ── */
+.sectionTitle,
+h2.sectionTitle,
+.sectionTitle-cards {
+  font-family: "Netflix Sans","Helvetica Neue","Segoe UI",Roboto,Ubuntu,sans-serif !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  font-weight: 700 !important;
+  font-size: 1.1em !important;
+  color: rgba(255,255,255,.92) !important;
+}
+.layout-desktop .sectionTitle,
+.layout-tv .sectionTitle {
+  font-family: "Netflix Sans","Helvetica Neue","Segoe UI",Roboto,Ubuntu,sans-serif !important;
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  letter-spacing: normal !important;
+  color: var(--textColor) !important;
+}
+.sectionTitle::after,
+h2.sectionTitle::after,
+.sectionTitle-cards::after,
+.am-stw-line {
+  display: none !important;
+  content: none !important;
+}
+
+h1, h2 {
+  font-weight: 700 !important;
+  font-family: "Netflix Sans","Helvetica Neue","Segoe UI",Roboto,Ubuntu,sans-serif !important;
+}
+
+/* No flashing red title / infinite bouncing arrow — Netflix's
+   own hover is just a subtle one-time nudge on the chevron */
+.sectionTitleTextButton:hover .sectionTitle,
+.sectionTitleTextButton:hover h2.sectionTitle,
+.sectionTitleButton:hover .sectionTitle,
+.sectionTitleButton:hover h2.sectionTitle {
+  color: #fff !important;
+  animation: none !important;
+}
+.sectionTitleTextButton:hover .material-icons,
+.sectionTitleButton:hover .material-icons,
+.sectionTitleTextButton:hover i.md-icon,
+.sectionTitleButton:hover i.md-icon,
+.sectionTitleTextButton:hover span[class*="icon"],
+.sectionTitleButton:hover span[class*="icon"] {
+  color: #fff !important;
+  text-shadow: none !important;
+  animation: none !important;
+  transform: translateX(4px);
+}
+.sectionTitleTextButton:hover svg,
+.sectionTitleButton:hover svg {
+  fill: #fff !important;
+  animation: none !important;
+  transform: translateX(4px);
+}
+
+.nameContainer > h1.itemName,
+.nameContainer > h1.parentName {
+  font-family: "Netflix Sans","Helvetica Neue","Segoe UI",Roboto,Ubuntu,sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 2.6em !important;
+}
+.layout-mobile .nameContainer > h1.itemName,
+.layout-mobile .nameContainer > h1.parentName,
+.layout-mobile .nameContainer > h1.parentNameLast {
+  font-size: 1.8em !important;
+}
+
+/* ── 4. Card hover: clean pop-and-lift, no colour sweep ── */
+.cardOverlayContainer,
+.cardOverlayContainer::after,
+.cardOverlayContainer:after {
+  background: transparent !important;
+  content: none !important;
+  box-shadow: none !important;
+}
+
+.card-hoverable:hover .cardImageContainer {
+  transform: scale(1.12) !important;
+}
+.card-hoverable:hover .cardScalable,
+.card-hoverable:hover .visualCardBox {
+  border-color: transparent !important;
+  box-shadow: 0 10px 28px rgba(0,0,0,.65) !important;
+}
+.card-hoverable:hover .cardOverlayContainer {
+  background: transparent !important;
+}
+
+.card-hoverable:hover .cardText,
+.card-hoverable:hover .cardText-secondary,
+.card-hoverable:hover .cardTextCentered,
+.card-hoverable:hover .cardFooter {
+  color: #fff !important;
+  text-shadow: none !important;
+}
+
+.card:focus .cardBox.visualCardBox,
+.card:focus .cardBox:not(.visualCardBox) .cardScalable {
+  border-color: #fff !important;
+}
+
+/* ── 5. Header: solid #141414 on scroll, no colour border ── */
+.skinHeader-blurred:not(.osdHeader):not(.semiTransparent) {
+  border: none !important;
+  box-shadow: 0 1px 0 rgba(0,0,0,.5) !important;
+}
+
+.sectionTabs .emby-tab-button-active {
+  background-color: transparent !important;
+  color: #fff !important;
+  box-shadow: inset 0 -3px 0 var(--activeColor);
+}
+.sectionTabs .emby-tab-button {
+  background-color: transparent !important;
+}
+.sectionTabs .emby-tab-button:hover:not(.emby-tab-button-active) {
+  background-color: rgba(255,255,255,.08) !important;
+  color: #fff !important;
+}
+
+/* ── 6. Login page: plain dark card, no red glow ── */
+#loginPage .padded-left.padded-right.padded-bottom-page {
+  background: rgba(0,0,0,.75) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  box-shadow: 0 0 30px rgba(0,0,0,.6) !important;
+}
+.manualLoginForm::before,
+.visualLoginForm::before {
+  font-family: "Netflix Sans","Helvetica Neue","Segoe UI",Roboto,Ubuntu,sans-serif !important;
+  font-weight: 700 !important;
+}
+
+/* ── 7. Small detail touches ── */
+.starIcon {
+  background: linear-gradient(to right, #e50914, #ff4d4f) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+::-webkit-scrollbar-thumb { background: #3d3d3d !important; }
+::-webkit-scrollbar-thumb:hover { background: var(--activeColor) !important; }
+* { scrollbar-color: #3d3d3d var(--darkerGradientPoint) !important; }
