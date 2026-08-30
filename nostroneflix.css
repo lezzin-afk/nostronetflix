@@ -3568,3 +3568,272 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child { gap: .5rem; }
       height: 36px !important;
   }
 }
+
+
+/* ============================================================
+   NETFLIX STYLE TYPOGRAPHY
+   Netflix Sans + Netflix-like typography/rendering
+   ============================================================ */
+
+@font-face {
+    font-family: "Netflix Sans";
+    src: url("https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Th.woff2")
+         format("woff2");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Netflix Sans";
+    src: url("https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Lt.woff2")
+         format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Netflix Sans";
+    src: url("https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff2")
+         format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Netflix Sans";
+    src: url("https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Md.woff2")
+         format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Netflix Sans";
+    src: url("https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Bd.woff2")
+         format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Netflix Sans";
+    src: url("https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Blk.woff2")
+         format("woff2");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ------------------------------------------------------------
+   Global typography
+   ------------------------------------------------------------ */
+
+html,
+body {
+    font-family:
+        "Netflix Sans",
+        "Helvetica Neue",
+        "Segoe UI",
+        Roboto,
+        Ubuntu,
+        sans-serif !important;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Jellyfin / NetFin */
+body,
+button,
+input,
+textarea,
+select,
+option,
+label,
+a,
+span,
+div {
+    font-family:
+        "Netflix Sans",
+        "Helvetica Neue",
+        "Segoe UI",
+        Roboto,
+        Ubuntu,
+        sans-serif !important;
+}
+
+/* ------------------------------------------------------------
+   Headings
+   ------------------------------------------------------------ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family:
+        "Netflix Sans",
+        "Helvetica Neue",
+        "Segoe UI",
+        Roboto,
+        Ubuntu,
+        sans-serif !important;
+
+    letter-spacing: -0.01em;
+}
+
+h1 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+h2 {
+    font-weight: 500;
+    letter-spacing: -0.02em;
+}
+
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 500;
+}
+
+/* ------------------------------------------------------------
+   Jellyfin item titles
+   ------------------------------------------------------------ */
+
+.cardText,
+.cardText-first,
+.itemName,
+.itemName-primary,
+.itemName-secondary,
+.itemMiscInfo,
+.cardOverlayButton {
+    font-family:
+        "Netflix Sans",
+        "Helvetica Neue",
+        "Segoe UI",
+        Roboto,
+        Ubuntu,
+        sans-serif !important;
+}
+
+.itemName,
+.itemName-primary,
+.cardText-first {
+    font-weight: 500 !important;
+    letter-spacing: -0.01em;
+}
+
+/* ------------------------------------------------------------
+   Navigation / menu
+   ------------------------------------------------------------ */
+
+.mainDrawer,
+.mainDrawer *,
+.headerRight,
+.skinHeader,
+.skinHeader *,
+.emby-button,
+.paper-icon-button-light,
+.navMenuOption {
+    font-family:
+        "Netflix Sans",
+        "Helvetica Neue",
+        "Segoe UI",
+        Roboto,
+        Ubuntu,
+        sans-serif !important;
+}
+
+.navMenuOption {
+    font-weight: 400 !important;
+    letter-spacing: -0.005em;
+}
+
+/* ------------------------------------------------------------
+   Buttons
+   ------------------------------------------------------------ */
+
+.emby-button,
+.button-submit,
+.emby-select,
+.emby-input,
+.emby-textarea {
+    font-family:
+        "Netflix Sans",
+        "Helvetica Neue",
+        "Segoe UI",
+        Roboto,
+        Ubuntu,
+        sans-serif !important;
+}
+
+.emby-button {
+    font-weight: 500 !important;
+}
+
+/* ------------------------------------------------------------
+   Metadata / secondary text
+   ------------------------------------------------------------ */
+
+.itemMiscInfo,
+.secondary,
+.secondaryText,
+.text-secondary,
+.listItemBodyText-secondary {
+    font-weight: 400 !important;
+    letter-spacing: 0 !important;
+}
+
+/* ------------------------------------------------------------
+   Badges
+   ------------------------------------------------------------ */
+
+.cardOverlayButton,
+.cardOverlayContainer,
+.itemProgressBar {
+    font-family:
+        "Netflix Sans",
+        "Helvetica Neue",
+        "Segoe UI",
+        Roboto,
+        Ubuntu,
+        sans-serif !important;
+}
+
+/* ------------------------------------------------------------
+   Netflix-like weight helpers
+   ------------------------------------------------------------ */
+
+.netflix-thin {
+    font-weight: 100 !important;
+}
+
+.netflix-light {
+    font-weight: 300 !important;
+}
+
+.netflix-regular {
+    font-weight: 400 !important;
+}
+
+.netflix-medium {
+    font-weight: 500 !important;
+}
+
+.netflix-bold {
+    font-weight: 700 !important;
+}
+
+.netflix-black {
+    font-weight: 900 !important;
+}
